@@ -774,7 +774,7 @@ def adjust_sigmoid(image, cutoff=0.5, gain=10, inv=False):
     return out.astype(dtype)
 
 
-def is_low_contrast(image, fraction_threshold=0.05, lower_percentile=1,
+def is_low_contrast(image, lower_percentile=1,
                     upper_percentile=99, method='linear'):
     """Determine if an image is low contrast.
 
@@ -836,4 +836,4 @@ def is_low_contrast(image, fraction_threshold=0.05, lower_percentile=1,
     limits = np.percentile(image, [lower_percentile, upper_percentile])
     ratio = (limits[1] - limits[0]) / (dlimits[1] - dlimits[0])
 
-    return ratio < fraction_threshold
+    return ratio
